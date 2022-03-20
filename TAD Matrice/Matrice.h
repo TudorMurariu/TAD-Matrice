@@ -10,9 +10,9 @@ class Matrice {
 		/* aici e reprezentarea */
 		int nr_Linii;
 		int nr_Coloane;
-		Vector Line, Col, Val;
+		Vector Line, Col;
+		Vector1 Val;
 	public:
-
 		//constructor
 		//se arunca exceptie daca nrLinii<=0 sau nrColoane<=0
 		Matrice(int nrLinii, int nrColoane);
