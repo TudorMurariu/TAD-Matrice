@@ -1,9 +1,9 @@
 #include "Matrice.h"
-//#include <exception>
+#include <exception>
 
-//using namespace std;
+using namespace std;
 
-
+/// Teta(1)
 Matrice::Matrice(int m, int n) {
 	///
 	/// Constructor pentru Matrice
@@ -20,24 +20,30 @@ Matrice::Matrice(int m, int n) {
 }
 
 
-
+// Teta(1)
 int Matrice::nrLinii() const{
 	/* returneaza numarul de linii(int) */
 	return this->nr_Linii;
 }
 
-
+// Teta(1)
 int Matrice::nrColoane() const{
 	/* returneaza numarul de coloane(int) */
 	return this->nr_Coloane;
 }
 
-
+/// Caz Favorabil : Teta(1)
+/// Caz Defavorabil : Teta(n)
+/// Caz Mediu : Teta(n)
+/// Caz Total : O(n)
 TElem Matrice::element(int i, int j) const {
 	/* cautam elemetul daca exita ii returnam valoarea altfel returnam valoarea 0 
 	se arunca exceptie daca (i,j) nu e pozitie valida in Matrice  */
 	if (i < 0 || j < 0 || j >= this->nrColoane() || i >= this->nrLinii())
-		throw "Pozitie invalida";
+	{
+		throw exception();
+		return NULL_TELEMENT;
+	}
 
 	for (int k = 0; k < this->Line.getLen(); k++)
 		if (this->Line.v[k] == i && this->Col.v[k] == j)
@@ -47,7 +53,10 @@ TElem Matrice::element(int i, int j) const {
 }
 
 
-
+/// Caz Favorabil : Teta(1)
+/// Caz Defavorabil : Teta(n)
+/// Caz Mediu : Teta(n)
+/// Caz Total : O(n)
 TElem Matrice::modifica(int i, int j, TElem e) {
 	/* 
 	! se arunca exceptie daca (i,j) nu e pozitie valida in Matrice  
@@ -63,7 +72,10 @@ TElem Matrice::modifica(int i, int j, TElem e) {
 	
 	*/
 	if (i < 0 || j < 0 || j >= this->nrColoane() || i >= this->nrLinii())
-		throw "Pozitie invalida";
+	{
+		throw exception();
+		return NULL_TELEMENT;
+	}
 
 	for (int k = 0; k < this->Line.getLen(); k++)
 		if (this->Line.v[k] == i && this->Col.v[k] == j)
